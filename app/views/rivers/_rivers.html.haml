@@ -3,4 +3,4 @@
     = link_to "#{river.name}", river_path(river.id)
     %span{:class => 'river-favorite'}
       - if current_user
-        = link_to image_tag('river-rat-star.png'), river_favorites_path(river.id), method: :post
+        = link_to image_tag('river-rat-star.png'), river_favorites_path(river.id), {id:"fav",method: :post}
