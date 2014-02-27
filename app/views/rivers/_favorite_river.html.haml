@@ -1,4 +1,4 @@
 %li
   = link_to "#{favorite_river.name}", river_path(favorite_river.id)
   %span{:class => 'remove-favorite'}
-    = link_to image_tag('river-rat-unfavorite.png'), river_favorites_path(favorite_river.id), method: :delete
+    = link_to image_tag('river-rat-unfavorite.png'), river_favorites_path(favorite_river.id), {id:"unfav" ,method: :delete}

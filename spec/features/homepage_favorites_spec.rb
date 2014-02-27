@@ -42,7 +42,9 @@ describe "favoriting on homepage" do
 
       it "clicking on favorite adds the river to favorites" do
         visit '/'
-        find('.river-favorite').first(:link, "Favorite").click
+        within('.river-favorite') do
+          click_link('fav')
+        end
         within('.user-favorites') do
           expect(page).to have_content('Saco')
         end
@@ -58,8 +60,12 @@ describe "favoriting on homepage" do
 
     it" clicking on X removes the favorite" do
       visit '/'
-      find('.river-favorite').first(:link, "Favorite").click
-      find('.remove-favorite').first(:button, 'X').click
+      within('.river-favorite') do
+        click_link('fav')
+      end
+      within('.remove-favorite') do
+        click_link('unfav')
+      end
       within('.user-favorites') do
         expect(page).to_not have_content('Saco')
       end
